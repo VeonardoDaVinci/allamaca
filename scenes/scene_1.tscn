@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/box-spawn.gd" type="Script" id=1]
+[ext_resource path="res://scripts/player-movement.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Block.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Slope.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Slope2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/alallama.dae" type="PackedScene" id=6]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.987796
+height = 0.144966
+
+[sub_resource type="CylinderShape" id=2]
+
+[sub_resource type="BoxShape" id=3]
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 1.02423, -0.00148298, 0.00244159, 0.00145375, 0.999996, -0.00245616, -0.00238024, 0.00245962, 0.999994, 0, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.976332, 0.000322168, -0.00240369, 0.00129491, 0.79656, 0.604558, 0.00204639, -0.60456, 0.796557, 0.0104476, 8.7102, 7.37373 )
+fov = 62.6
+
+[node name="Player" type="KinematicBody" parent="."]
+transform = Transform( 0.999999, -3.17414e-10, 4.65661e-10, -1.86446e-10, 0.999999, 0, -3.49246e-09, 9.31323e-10, 1, 0, 1.5, 0 )
+collision_layer = 3
+script = ExtResource( 2 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="Player"]
+transform = Transform( 1, 1.36424e-12, 2.32831e-10, 4.09273e-11, 1, 0, 0, 2.32831e-10, 1, -1.16415e-10, 0.5, 2.32831e-10 )
+height = 2.0
+sides = 15
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 0.999999, 0, -4.2337e-10, -7.18501e-11, -1.6205e-07, -1, -1.16415e-09, 0.999999, -1.6531e-07, 0.000653755, 0.449702, -0.00110454 )
+shape = SubResource( 1 )
+
+[node name="Area" type="Area" parent="Player"]
+transform = Transform( 1, 1.1778e-10, 4.65661e-10, 4.1382e-11, 1, 0, 0, 2.32831e-10, 1, 0.000508022, 0.349456, -0.000858324 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Player/Area"]
+transform = Transform( 1, 2.31012e-10, 0, -7.54881e-11, 1, 4.65661e-10, -4.65661e-10, 4.65661e-10, 1, -0.000527741, 0.138981, 0.000891637 )
+shape = SubResource( 2 )
+
+[node name="Block" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.999999, 2.3465e-10, 0, 3.98813e-10, 0.999999, -2.09548e-09, -2.56114e-09, 2.32831e-09, 1, 4.34641, 1.10363, 0.00302929 )
+
+[node name="Block2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.999999, 2.3465e-10, 0, 3.98813e-10, 0.999999, -2.09548e-09, -2.56114e-09, 2.32831e-09, 1, -6, 2, 0 )
+
+[node name="Block3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.999999, 2.3465e-10, 0, 3.98813e-10, 0.999999, -2.09548e-09, -2.56114e-09, 2.32831e-09, 1, -6, 4, -4 )
+
+[node name="Slope" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 1.1778e-10, 0, 1.63709e-10, 1, -1.62981e-09, -1.62981e-09, 1.62981e-09, 1, 1.20001, -0.0017375, 0.0028606 )
+
+[node name="Slope2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.999999, 2.31466e-10, 0, 3.98813e-10, 1, -2.32831e-09, -3.0268e-09, 2.56114e-09, 1, 2.77663, 0.62268, 0.00507753 )
+
+[node name="Slope3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.999999, 2.34195e-10, 0, 2.81943e-10, 0.999999, -2.56114e-09, -2.79397e-09, 2.79397e-09, 1, 2.7721, 0.627362, 1.9089 )
+
+[node name="RigidBody" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 1.1778e-10, 0, 2.80124e-10, 1, -1.62981e-09, -2.09548e-09, 1.86265e-09, 1, -4, 2, 0 )
+
+[node name="RigidBody2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.000783689, 1.92547e-06, -1, -1.14134e-06, 1, 2.01919e-06, 1, 1.19512e-06, 0.000822142, -6, 4, -2 )
+
+[node name="RigidBody3" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1.01829, 0.00286233, 3.20057e-07, 0.00291469, 0.999995, 5.14305e-05, -1.79187e-07, 5.23606e-05, -0.982249, -4, 6, -4 )
+
+[node name="RigidBody4" type="RigidBody" parent="."]
+transform = Transform( 0.999999, 2.35559e-10, 0, 3.98813e-10, 1, -1.86265e-09, -2.32831e-09, 2.09548e-09, 1, -1.63181, 1.79624, -0.478059 )
+
+[node name="alallama" parent="RigidBody4" instance=ExtResource( 6 )]
+transform = Transform( 1, -1.19144e-10, 0, 4.18368e-11, 1, 2.32831e-10, 0, 0, 1, -1.19209e-07, 0, -2.98023e-08 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody4"]
+transform = Transform( 1, -2.36014e-10, 0, 1.58252e-10, 1, 0, -4.65661e-10, 4.65661e-10, 1, 0.00322282, 2.2169, -0.00544509 )
+shape = SubResource( 3 )
+[connection signal="area_entered" from="Player/Area" to="Player" method="_on_Area_area_entered"]
+[connection signal="body_entered" from="Player/Area" to="Player" method="_on_Area_body_entered"]

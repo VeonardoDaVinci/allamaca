@@ -1,0 +1,52 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "Coin",
+"language": "GDScript",
+"path": "res://scripts/coin.gd"
+} ]
+_global_script_class_icons={
+"Coin": ""
+}
+
+[application]
+
+config/name="Captain Toad Castlevania"
+run/main_scene="res://scenes/scene_1.tscn"
+config/icon="res://icon.png"
+
+[input]
+
+analog_stick_left={
+"deadzone": 0.25,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
+ ]
+}
+analog_stick_right={
+"deadzone": 0.25,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
+ ]
+}
+analog_stick_up={
+"deadzone": 0.25,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
+ ]
+}
+analog_stick_down={
+"deadzone": 0.25,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
+ ]
+}
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

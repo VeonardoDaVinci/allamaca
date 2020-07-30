@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="Slope" type="StaticBody"]
+transform = Transform( 1, 4.09273e-12, 0, 5.0477e-11, 1, -2.32831e-10, -2.32831e-10, 2.32831e-10, 1, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 0.937701, -0.339285, 0.000686228, 0.355927, 0.937653, 0.00100055, -0.00102374, -0.000654232, 0.999999, 0, 0.209, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.933899, -0.349139, 0.000701417, 0.366265, 0.93385, 0.00103451, -0.00105822, -0.000668334, 0.999999, 0, 0.207, 0 )
+shape = SubResource( 1 )
